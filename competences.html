@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<title>Compétences</title>
+<link href="https://fonts.googleapis.com/css2?family=Overlock:wght@400;700&display=swap" rel="stylesheet" />
+
+</head>
+<body>
+
+<a href="index.html" class="back-link">← Retour</a>
+
+<div class="skills-grid">
+  <div class="skill-card">
+    <h2 class="skill-title">Réaliser un développement d'application</h2>
+    <p class="skill-desc">Développer des applications informatiques simples</p>
+    <a href="Projets.html#projet1"><p class="skill-example">Voir Projet 1</p></a>
+  </div>
+
+  <div class="skill-card">
+    <h2 class="skill-title">Optimiser des applications informatiques</h2>
+    <p class="skill-desc">Appréhender et construire des algorithmes</p>
+    <a href="Projets.html#projet2"><p class="skill-example">Voir Projet 2</p></a>
+  </div>
+
+  <div class="skill-card">
+    <h2 class="skill-title">Administrer des systèmes informatiques communicants complexes</h2>
+    <p class="skill-desc">Installer et configurer un poste de travail</p>
+    <a href="Projets.html#projet3"><p class="skill-example">Voir Projet 3</p></a>
+  </div>
+
+  <div class="skill-card">
+    <h2 class="skill-title">Gérer des données de l'information</h2>
+    <p class="skill-desc">Concevoir et mettre en place une base de données à partir d'un cahier des charges client</p>
+    <a href="Projets.html#projet4"><p class="skill-example">Voir Projet 4</p></a>
+  </div>
+
+  <div class="skill-card">
+    <h2 class="skill-title">Conduite de projet</h2>
+    <p class="skill-desc">Identifier les besoins métiers des clients et des utilisateurs</p>
+    <a href="Projets.html#projet5"><p class="skill-example">Voir Projet 5</p></a>
+  </div>
+
+  <div class="skill-card">
+    <h2 class="skill-title">Travailler dans une équipe informatique</h2>
+    <p class="skill-desc">Identifier ses aptitudes pour travailler dans une équipe</p>
+    <a href="Projets.html#projet6"><p class="skill-example">Voir Projet 6</p></a>
+  </div>
+</div>
+
+</body>
+</html>
+
+<style>
+  body {
+    font-family: 'Overlock', serif;
+    margin: 0;
+    padding: 20px;
+    background-image: url(Images/background3.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    color: #693F26;
+  }
+
+  .back-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #693F26;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    background-color: rgba(213, 194, 165, 0.7);
+    border-radius: 3px;
+    border: 1px solid #693F26;
+    transition: all 0.3s;
+    z-index: 100;
+  }
+  .back-link:hover {
+    background-color: rgba(213, 194, 165, 1);
+    transform: scale(1.05);
+  }
+
+  .skills-grid {
+    display: grid;  
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 100px auto 60px; 
+    padding: 0 15px;
+  }
+
+    @media (max-width: 900px) {
+    .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+  @media (max-width: 600px) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+      margin-top: 80px;
+    }
+    .skill-card {
+      padding: 25px 20px;
+    }
+  }
+
+  .skill-card {
+    background: rgba(255,255,255,0.9);
+    border-radius: 30px;
+    padding: 30px 25px;
+    box-shadow: 0 8px 20px rgba(105, 63, 38, 0.15);
+    border: 3px solid #D5C2A5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(105, 63, 38, 0.35);
+  }
+
+  .skill-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #693F26;
+  }
+
+  .skill-desc {
+    font-size: 1.2rem;
+    color: #A88C70;
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+
+  .skill-example {
+    font-style: italic;
+    color: #A88C70;
+    background-color: rgba(213, 194, 165, 0.2);
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin: 0 auto;
+    max-width: fit-content;
+  }
+
+  .skills-grid a{
+    text-decoration: none;
+  }
+
+  .skill-example:hover{
+    background-color: #D5C2A5;
+    color: #693F26;
+  }
+
+</style>
