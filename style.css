@@ -3,6 +3,7 @@ body{
     margin-bottom: 50px;
     margin: 0;
     padding: 0;
+    padding-top: 300px;
     background-image: url(Images/background5.jpg);
     background-size: cover;
     background-position: center center;
@@ -10,6 +11,11 @@ body{
     display: flex;
     flex-direction: column;
     scroll-behavior: smooth;
+}
+
+main{
+    position: relative;
+    z-index: 1;
 }
 
 .content {
@@ -64,7 +70,7 @@ nav {
     left: 0; 
     width: 100%; 
     z-index: 10; 
-    padding: 10px 0; 
+    padding: 20px 0; 
 }
 
 header h1{
@@ -305,19 +311,21 @@ main img{
 
 .texte-intro {
     position: fixed;
-    top: 300px; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: white;
     color: #D5C2A5;
     font-size: 1.5rem;
     font-weight: bold;
-    border-radius: 10px;
-    max-width: 30%;
-    height: auto;
+    padding: 20px;
     text-align: center;
     border: 2px solid #D5C2A5;
     border-radius: 20px;
+    max-width: 600px; 
+    width: 80%; 
+    box-sizing: border-box;
+    z-index: 5;
 }
 
 
