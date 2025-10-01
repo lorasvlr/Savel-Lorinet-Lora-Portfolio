@@ -2,73 +2,599 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Contact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Lora Savel-Lorinet</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body class="body_contact">
     <a href="index.html" class="back-link">← Retour</a>
+    
     <div class="contact-container">
-        <h1>Contact</h1>
-        <div class="contact-line">
-            <span class="contact-label">Email :</span>
-            <a href="mailto:lora.lorinet@gmail.com" class="email-link">lora.lorinet@gmail.com</a>
-            <button class="copy-button" onclick="copyEmail()">
-                <span class="copy-text">Copier</span>
-                <span class="checkmark">✓</span>
+        <h1>Contactez-moi</h1>
+        
+        <form id="contact-form" action="https://formspree.io/f/mnngdkky" method="POST">
+            
+            <div id="form-error-message" class="error-message hidden"></div>
+
+            <div class="form-group">
+                <label for="name">Votre Nom et Prénom</label>
+                <input type="text" id="name" name="Nom et Prenom" required placeholder="Ex: Votre Nom" autocomplete="name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Votre Email</label>
+                <input type="email" id="email" name="_replyto" required placeholder="Ex: votre-email@service.com" autocomplete="email">
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Objet de votre message</label>
+                <select id="subject" name="_subject" required>
+                    <option value="" disabled selected>Choisir un objet</option>
+                    <option value="Proposition d'Alternance - Portfolio">Proposition d'Alternance</option>
+                    <option value="Proposition de Stage - Portfolio">Proposition de Stage</option>
+                    <option value="Question sur mes competences/projets - Portfolio">Question sur mes compétences/projets</option>
+                    <option value="Autre demande - Portfolio">Autre demande</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Votre Message</label>
+                <textarea id="message" name="Message" rows="6" required placeholder="Ecrivez ici votre message..."></textarea>
+            </div>
+            
+            <button type="submit" class="send-btn">
+                Envoyer le Message
             </button>
-        </div>
-        <div class="contact-line">
-            <span class="contact-label">Téléphone :</span>
-            <span class="phone-number">07 66 49 80 81</span>
-        </div>
+        </form>
+
+        <p style="margin-top: 20px;">
+            Vous pouvez également me contacter via LinkedIn.
+        </p>
+
         <div class="logo-container">
-            <a href="https://www.linkedin.com/in/lora-savel-lorinet"><img class="logo" src="Images/linkedin.png" alt="Linkedin"></a>
+            <a href="https://www.linkedin.com/in/lora-savel-lorinet" target="_blank">
+                <img class="logo" src="https://placehold.co/50x50/693F26/FFFFFF?text=LI" alt="Linkedin">
+            </a>
         </div>
     </div>
-    <img class="moi_contact" src="Images/moi3.png" alt="Illustration">
+    
+    <span class="bubble-extra-left"></span>
+    
+    <footer class="footer_contact">
+        <p>Lora Savel-Lorinet. Etudiante en 2ème année de BUT Informatique.</p>
+    </footer>
+
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <h2>Message Envoyé !</h2>
+            <p>Merci pour votre message. Je vous répondrai dans les plus brefs délais.</p>
+            <button id="close-modal-btn" class="send-btn">Fermer</button>
+        </div>
+    </div>
 
     <script>
-        function copyEmail() {
-            const email = 'lora.lorinet@gmail.com';
-            navigator.clipboard.writeText(email);
-            
-            const button = document.querySelector('.copy-button');
-            button.classList.add('copied');
-            
-            setTimeout(() => {
-                button.classList.remove('copied');
-            }, 2000);
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('contact-form');
+            const modal = document.getElementById('success-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            const errorDiv = document.getElementById('form-error-message');
+            const sendButton = form.querySelector('.send-btn');
+
+            function displayError(message) {
+                errorDiv.textContent = message;
+                errorDiv.classList.remove('hidden');
+                setTimeout(() => {
+                    errorDiv.classList.add('hidden');
+                }, 5000);
+            }
+
+            const closeModal = () => {
+                modal.classList.remove('visible');
+                sendButton.textContent = 'Envoyer le Message';
+                sendButton.disabled = false;
+            };
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                errorDiv.classList.add('hidden');
+                sendButton.textContent = 'Envoi en cours...';
+                sendButton.disabled = true;
+
+                const formURL = form.action;
+                const formData = new FormData(form);
+
+                try {
+                    const response = await fetch(formURL, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json' 
+                        }
+                    });
+
+                    if (response.ok) {
+                        form.reset();
+                        modal.classList.add('visible');
+                        
+                    } else {
+                        let errorMessage = 'Une erreur s\'est produite lors de l\'envoi. Veuillez réessayer.';
+                        try {
+                            const data = await response.json();
+                            if (data.errors && data.errors.length > 0) {
+                                errorMessage = "Erreur de validation: Certains champs sont invalides.";
+                            } else if (data.error) {
+                                errorMessage = data.error;
+                            }
+                        } catch (err) {
+                        }
+                        
+                        displayError(errorMessage);
+                    }
+                } catch (error) {
+                    displayError('Problème de connexion. Veuillez vérifier votre connexion et réessayer.');
+                } finally {
+                    if (!modal.classList.contains('visible')) {
+                        sendButton.textContent = 'Envoyer le Message';
+                        sendButton.disabled = false;
+                    }
+                }
+            });
+
+            closeModalBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+        });
     </script>
 </body>
 </html>
 
 <style>
-    .logo{
-        width: 100px;
-        position: absolute;
-        bottom: -15px;
-        left: 235px;
-        margin: 5px;
-    }
-
-    .contact-container {
-        position: relative;
-        border: 2px solid #D5C2A5;
-    }
-
-    .back-link {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    color: #693F26;
-    text-decoration: none;
-    font-size: 1.2rem;
-    padding: 5px 10px;
-    background-color: rgba(213, 194, 165, 0.7);
-    border-radius: 3px;
-    border: 1px solid #693F26;
-}
     
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+:root {
+    --color-dark: #693F26;
+    --color-light: #D5C2A5;
+    --color-white: #FFFFFF;
+    --color-medium: #DDD0B8;
+    --color-accent-shape: rgba(105, 63, 38, 0.1); 
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%; 
+    overflow-x: hidden;
+}
+
+
+.body_contact {
+    font-family: 'Overlock', serif; 
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box; 
+    color: var(--color-dark);
+    scroll-behavior: smooth;
+
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+    
+    font-family: "Playfair Display", serif;
+    background-color: var(--color-medium);
+    
+    position: relative;
+    width: 100%;
+    max-width: 100%; 
+    overflow-x: hidden;
+    
+    margin-bottom: 0;
+}
+
+.back-link {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    color: var(--color-dark);
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 8px 15px;
+    background-color: var(--color-medium);
+    border-radius: 5px;
+    border: 1px solid var(--color-dark);
+    transition: all 0.3s;
+    z-index: 999;
+}
+.back-link:hover {
+    background-color: var(--color-light);
+    transform: scale(1.05);
+}
+
+.contact-container {
+    background-color: var(--color-white);
+    padding: 40px;
+    max-height: 850px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 90%; 
+    max-width: 600px;
+    text-align: center;
+    
+    position: relative; 
+    z-index: 10; 
+    
+    margin: 40px 20px; 
+    
+    padding-bottom: 40px; 
+    
+    flex-shrink: 0; 
+}
+
+.contact-container h1 {
+    font-size: clamp(2rem, 5vw, 2.5rem); 
+    margin-bottom: 30px;
+    color: var(--color-dark);
+    position: relative; 
+    z-index: 11; 
+}
+
+.contact-container form {
+    position: relative; 
+}
+
+
+.contact-container p {
+    font-size: 1.2rem;
+    margin: 15px 0 30px; 
+    color: var(--color-dark);
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--color-dark);
+    font-size: 1.1rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--color-light);
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: "Playfair Display", serif; 
+    font-size: 1rem;
+    color: var(--color-dark);
+    background-color: var(--color-medium);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--color-dark);
+    box-shadow: 0 0 8px rgba(105, 63, 38, 0.3);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.send-btn {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.send-btn:hover:not(:disabled) {
+    background-color: #4A2B1A;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.send-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.logo {
+    width: 50px;
+    height: 50px; 
+    border-radius: 50%;
+    margin: 10px 0 0;
+}
+
+.footer_contact {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    
+    background-color: rgba(213, 194, 165, 0.9);
+    color: var(--color-dark);
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    
+    z-index: 5; 
+    
+    margin: 0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.error-message {
+    color: var(--color-white);
+    background-color: #9C4B4B;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    transition: opacity 0.3s;
+    opacity: 1;
+}
+
+/* Style de la Modale */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(105, 63, 38, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.modal.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--color-white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    transform: scale(0.8);
+    transition: transform 0.3s ease-out;
+}
+
+.modal.visible .modal-content {
+    transform: scale(1);
+}
+
+.modal-content h2 {
+    color: var(--color-dark); 
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.modal-content p {
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    color: var(--color-dark);
+}
+
+.body_contact::before,
+.body_contact::after,
+.contact-container::before,
+.contact-container::after,
+.back-link::before,
+.back-link::after,
+.logo-container::before,
+.logo-container::after,
+.contact-container h1::before,
+.contact-container form::before,
+.contact-container form::after,
+.bubble-extra-left
+{
+    content: '';
+    position: absolute;
+    border-radius: 50%; 
+    background: var(--color-accent-shape); 
+    transform: translate(-50%, -50%);
+    animation: shapeMove 15s linear infinite alternate;
+    z-index: 0;
+}
+.body_contact::after { content: ''; } 
+.body_contact::before { content: ''; } 
+.contact-container::before { content: ''; } 
+.contact-container::after { content: ''; } 
+.back-link::after { content: ''; } 
+.logo-container::before { content: ''; } 
+.back-link::before { content: ''; } 
+.logo-container::after { content: ''; } 
+.contact-container h1::before { content: ''; } 
+.contact-container form::before { content: ''; } 
+.contact-container form::after { content: ''; } 
+
+
+.body_contact::before, .body_contact::after,
+.back-link::before, .back-link::after,
+.logo-container::before, .logo-container::after,
+.bubble-extra-left {
+    z-index: 0; 
+}
+
+.contact-container::before, .contact-container::after, 
+.contact-container h1::before, 
+.contact-container form::before, .contact-container form::after {
+    z-index: -1; 
+}
+
+
+.body_contact::after {
+    height: 300px;
+    width: 300px;
+    top: 15%; 
+    left: 85%;
+    animation-duration: 15s;
+}
+
+.body_contact::before {
+    height: 200px;
+    width: 200px;
+    top: 80%; 
+    left: 90%;
+    animation-duration: 20s;
+}
+
+.contact-container::before {
+    height: 100px;
+    width: 100px;
+    top: 5%;
+    left: 15%;
+    animation-duration: 10s;
+}
+
+.contact-container::after {
+    height: 120px;
+    width: 120px;
+    top: 90%; 
+    left: 25%;
+    animation-duration: 12s;
+}
+
+.back-link::after {
+    height: 50px;
+    width: 50px;
+    top: 40%;
+    left: 35%;
+    animation-duration: 8s;
+}
+
+.logo-container::before {
+    height: 180px;
+    width: 180px;
+    top: 90%; 
+    left: 10%;
+    animation-duration: 25s;
+}
+
+.back-link::before {
+    height: 80px;
+    width: 80px;
+    top: 25%;
+    left: 10%;
+    animation-duration: 9s;
+}
+
+.logo-container::after {
+    height: 200px;
+    width: 200px;
+    top: 10%; 
+    left: 20%;
+    animation-duration: 17s;
+}
+
+.contact-container h1::before {
+    height: 40px;
+    width: 40px;
+    top: 0;
+    left: 100%;
+    animation-duration: 7s;
+}
+
+.contact-container form::before {
+    height: 120px;
+    width: 120px;
+    top: 50%;
+    left: 0; 
+    animation-duration: 19s;
+}
+
+.contact-container form::after {
+    height: 150px;
+    width: 150px;
+    top: 95%; 
+    left: 95%; 
+    animation-duration: 22s;
+}
+
+.bubble-extra-left {
+    height: 150px;
+    width: 150px;
+    top: 60%; 
+    left: 5%;
+    animation-duration: 14s;
+}
+
+
+@keyframes shapeMove {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    100% { transform: translate(-45%, -55%) scale(1.1); }
+}
+
+.contact-container::before,
+.back-link::before 
+{
+    animation-name: shapeMoveSmall; 
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
+
+@keyframes shapeMoveSmall {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-55%, -50%) scale(0.98); }
+    100% { transform: translate(-45%, -50%) scale(1); }
+}
+
+@media (max-width: 640px) {
+    .contact-container {
+        padding: 30px 20px;
+        margin: 20px auto;
+    }
+    .contact-container h1 {
+        margin-bottom: 20px;
+    }
+    .back-link {
+        font-size: 1rem;
+        padding: 6px 12px;
+    }
+    .footer_contact {
+        padding: 8px 0;
+    }
+}
 </style>
