@@ -47,8 +47,8 @@
             </button>
         </form>
 
-        <p style="margin-top: 20px;">
-            Vous pouvez également me contacter via LinkedIn.
+        <p>
+            Vous pouvez également me contacter via LinkedIn, ou au <strong>0766498081</strong>
         </p>
 
         <div class="logo-container">
@@ -61,7 +61,7 @@
     <span class="bubble-extra-left"></span>
     
     <footer class="footer_contact">
-        <p>Lora Savel-Lorinet. Etudiante en 2ème année de BUT Informatique.</p>
+        <p>Savel-Lorinet Lora Etudiante en 2ème année de BUT Informatique à la recherche d'une alternance / d'un stage.</p>
     </footer>
 
     <div id="success-modal" class="modal">
@@ -153,7 +153,7 @@
 </html>
 
 <style>
-    
+
     * {
         margin: 0;
         padding: 0;
@@ -189,7 +189,6 @@ html {
     flex-direction: column; 
     align-items: center;
     min-height: 100vh;
-    justify-content: center;
     
     font-family: "Playfair Display", serif;
     background-color: var(--color-medium);
@@ -203,23 +202,21 @@ html {
 }
 
 .back-link {
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    color: var(--color-dark);
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #693F26;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     padding: 8px 15px;
-    background-color: var(--color-medium);
-    border-radius: 5px;
-    border: 1px solid var(--color-dark);
-    transition: all 0.3s;
-    z-index: 999;
-}
-.back-link:hover {
-    background-color: var(--color-light);
-    transform: scale(1.05);
-}
+    background-color: #D5C2A5; 
+    border-radius: 8px; 
+    border: 1px solid #693F26;
+    transition: background-color 0.3s ease;
+        }
+    .back-link:hover {
+        background-color: #C0A98C;
+    }
 
 .contact-container {
     background-color: var(--color-white);
@@ -234,7 +231,8 @@ html {
     position: relative; 
     z-index: 10; 
     
-    margin: 40px 20px; 
+    /* Centrage vertical tout en garantissant une marge verticale minimale de 40px */
+    margin: 40px auto; 
     
     padding-bottom: 40px; 
     
@@ -253,10 +251,9 @@ html {
     position: relative; 
 }
 
-
 .contact-container p {
     font-size: 1.2rem;
-    margin: 15px 0 30px; 
+    margin: 15px 0 10px; 
     color: var(--color-dark);
 }
 
@@ -330,13 +327,10 @@ html {
     width: 50px;
     height: 50px; 
     border-radius: 50%;
-    margin: 10px 0 0;
+    margin: 0;
 }
 
 .footer_contact {
-    position: fixed;
-    bottom: 0;
-    left: 0;
     width: 100%;
     
     background-color: rgba(213, 194, 165, 0.9);
@@ -347,7 +341,8 @@ html {
     
     z-index: 5; 
     
-    margin: 0;
+    margin-top: 50px;
+    margin-bottom: 0;
 }
 
 .hidden {
@@ -367,7 +362,6 @@ html {
     opacity: 1;
 }
 
-/* Style de la Modale */
 .modal {
     position: fixed;
     z-index: 1000;
@@ -584,7 +578,7 @@ html {
 @media (max-width: 640px) {
     .contact-container {
         padding: 30px 20px;
-        margin: 20px auto;
+        margin: 40px auto; 
     }
     .contact-container h1 {
         margin-bottom: 20px;
