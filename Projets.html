@@ -2,126 +2,277 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Projets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mes Projets Techniques</title>
+  <link href="https://fonts.googleapis.com/css2?family=Overlock:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body id="top">
   <a href="index.html" class="back-link">← Retour</a>
 
   <section class="projects-section">
-    <h1>Mes projets</h1>
+    <h1 id="main-title">Mes projets</h1>
 
-    <article>
-      <div class="project" id="projet1">
-        <h2>Projet 1 : Conception du jeu Snake en language C</h2>
-        <p>étape 1 : maquette <br>
-           étape 2 : cahier de tests <br>
-           étape 3 : algorithme et décomposition <br>
-           étape 4 : code source <br>
-           étape 5 : traces d'exécution
-        </p>
-        <details>
-          <summary>📁 Voir le fichier</summary>
+    <div class="projects-layout">
+        <nav class="project-index">
+          <h3>Index des Projets</h3>
           <ul>
-            <li><a href="fichiers/Jeu.c" target="_blank">Jeu</a></li>
+            <li><a href="#projet1">1. Snake en C</a></li>
+            <li><a href="#projet2">2. Algo. KNN</a></li>
+            <li><a href="#projet3">3. Docker Automation</a></li>
+            <li><a href="#projet4">4. Base de Données</a></li>
+            <li><a href="#projet5">5. Maquettage UX/UI</a></li>
+            <li><a href="#projet6">6. Veille & RSE</a></li>
           </ul>
-        </details>
-        
-      </div>
+        </nav>
+    
+        <article class="projects-list">
+          
+          <div class="project-controls">
+              <button id="toggle-all-details" class="control-button">Déplier tout</button>
+          </div>
+          <div class="project" id="projet1">
+            <h2>Projet 1 : Conception du jeu Snake en language C</h2>
+            
+            <details class="project-details">
+              <summary>Détails du projet & Étapes clés</summary>
+              
+              <p>
+                Ce projet visait la conception et l'implémentation complète du jeu classique Snake en utilisant le langage C. L'accent a été mis sur la gestion de la mémoire, les structures de données efficaces et le respect d'une démarche de développement rigoureuse.
+              </p>
+              
+              <div class="steps-list">
+                <strong>Démarche suivie :</strong>
+                <ul>
+                  <li>Étape 1 : Maquette fonctionnelle et spécifications.</li>
+                  <li>Étape 2 : Rédaction du cahier de tests.</li>
+                  <li>Étape 3 : Algorithme et décomposition modulaire.</li>
+                  <li>Étape 4 : Développement du code source.</li>
+                  <li>Étape 5 : Traces d'exécution et validation.</li>
+                </ul>
+              </div>
 
-      <div class="project" id="projet2">
-        <h2>Projet 2 : Création d'un algorithme KNN</h2>
-        <p>Analyser un problème avec méthode (découpage
-           en éléments algorithmiques simples, structure de
-           données...) <br> <br>
-           Comparer des algorithmes pour des problèmes
-           classiques (tris simples, recherche...)
-        </p>
-        <details>
-          <summary>📁 Voir le fichier</summary>
-          <ul>
-            <li><a href="fichiers/KNN.py" target="_blank">Algorithme KNN</a></li>
-          </ul>
-        </details>
-      </div>
+              <div class="skills">
+                <strong>Technologies/Compétences :</strong>
+                <ul class="tag-list">
+                    <li>C (Programmation système)</li>
+                    <li>Algorithmique</li>
+                    <li>Gestion de la mémoire</li>
+                    <li>Débogage</li>
+                    <li>Structuration du code</li>
+                </ul>
+              </div>
 
-      <div class="project" id="projet3">
-        <h2>Projet 3 : Configurer un poste de travail grâce à Docker</h2>
-        <p>
-          Exploitation de conteneurs Docker "utilitaires" et création d'un Workflow chaînant ces conteneurs. <br>
-          L'objectif était la mise en place de briques logicielles s'intégrant à un environnement de développement complexe. <br> <br>
-          Ces briques logicielles conteneurisées formaient un mécanisme quasi-automatique redéployable, à peu de frais (temps et compétences), ultérieurement et/ou par d'autres développeurs. <br>
-          Le projet permettait de générer des PDF de rapports commerciaux régionaux d'une entreprise.
-        </p>
-        <details>
-          <summary>🗂️​ Voir les fichiers</summary>
-          <ul>
-            <li><a href="fichiers/Documentation.pdf" target="_blank">Docker</a></li>
-            <li><a href="fichiers/traitement.sh" target="_blank">Traitement des données</a></li>
-            <li><a href="fichiers/tri.php" target="_blank">Tri des données</a></li>
-            <li><a href="fichiers/flags.sh" target="_blank">Drapeaux</a></li>
-          </ul>
-        </details>
-      </div>
+              <details class="file-details">
+                <summary>Voir le fichier source</summary>
+                <ul>
+                  <li><a href="fichiers/Jeu.c" target="_blank">Jeu (Code Source C)</a></li>
+                </ul>
+              </details>
+            </details>
+          </div>
 
-      <div class="project" id="projet4">
-        <h2>Projet 4 : Base de données relationnelle</h2>
-        <p>
-          Étape 1 : critique de la base de données existante + proposition d'un nouveau modèle (incluant les correstions) et sa transformation en modèle relationnel (script SQL) <br>
-          Étape 2 : répondre aux différentes requêtes (livrable sous forme de script SQL) <br>
-          Étape 3 : extension de la base de données (diagramme de classe + implémentation SQL) + proposition d'un jeu de données test pour peupler la nouvelle base de données
-        </p>
-        <details>
-          <summary>🗂️​ Voir les fichiers</summary>
-          <ul>
-            <li><a href="fichiers/diagramme_bdd.pdf" target="_blank">Diagramme des contraintes</a></li>
-            <li><a href="fichiers/bdd.sql" target="_blank">Base de données</a></li>
-          </ul>
-        </details>
-      </div>
+          <div class="project" id="projet2">
+            <h2>Projet 2 : Création d'un algorithme K-Nearest Neighbors (KNN)</h2>
+            
+            <details class="project-details">
+              <summary>Détails du projet & Objectifs d'apprentissage</summary>
+              
+              <p>
+                Implémentation from scratch de l'algorithme de classification non-paramétrique K-Nearest Neighbors (KNN). Le but était de maîtriser les fondamentaux du Machine Learning en Python en se concentrant sur les notions de distance et de classification d'instances.
+              </p>
 
-      <div class="project" id="projet5">
-        <h2>Projet 5 : Appréhender les besoins du client et de l’utilisateur</h2>
-        <p>
-          1-Organisation d'équipe : répartition du travail, rôles.... <br>
-          2-Compréhension et rédaction des besoins <br>
-          3-Réalisation de l'arborescence <br>
-          4-Création de la charte graphique <br>
-          5-Maquettage <br>
-          6-Programmation avec outil de versionning <br>
-          7-Présentation orale en équipe
-        </p>
-        <details>
-          <summary>📁 Voir le fichier</summary>
-          <ul>
-            <li><a href="fichiers/Maquette.pdf" target="_blank">Maquette</a></li>
-          </ul>
-        </details>
-      </div>
+              <div class="steps-list">
+                <strong>Objectifs :</strong>
+                <ul>
+                  <li>Analyser un problème et le décomposer en éléments algorithmiques simples.</li>
+                  <li>Mise en œuvre d'une structure de données adaptée.</li>
+                  <li>Comparer les performances de l'algorithme avec des problèmes classiques.</li>
+                </ul>
+              </div>
+              
+              <div class="skills">
+                <strong>Technologies/Compétences :</strong>
+                <ul class="tag-list">
+                    <li>Python</li>
+                    <li>Machine Learning (KNN)</li>
+                    <li>Algorithmes de classification</li>
+                    <li>Analyse de données</li>
+                    <li>Efficacité algorithmique</li>
+                </ul>
+              </div>
 
-      <div class="project" id="projet6">
-        <h2>Projet 6 : Appréhender l'écosystème numérique</h2>
-        <p>
-          1- Organiser le travail d'équipe à l'aide d'outils (fixer ses objectifs , partager des tâches et planifier le travail) <br>
-          2- Organiser sa recherche documentaire sur une entreprise et mettre en place des outils de veille (mots clés, sources ; 
-          lecture , analyse et tri des informations relative à l'organisation et la RSE portant sur le développement et transition écologique) <br>
-          3- Préparer une synthèse écrite <br>
-          4- Présenter son travail à l'aide d'outils web (canva, prézi, genially) <br>
-          5- Présenter son travail oralement individuellement et en équipe <br>
-        </p>
-        <details>
-          <summary>📁 Voir le fichier</summary>
-          <ul>
-            <li><a href="fichiers/Rapport.pdf" target="_blank">Rapport de l'entreprise</a></li>
-          </ul>
-        </details>
-      </div>
-    </article>
+              <details class="file-details">
+                <summary>Voir le fichier d'implémentation</summary>
+                <ul>
+                  <li><a href="fichiers/KNN.py" target="_blank">Algorithme KNN (Python)</a></li>
+                </ul>
+              </details>
+            </details>
+          </div>
+
+          <div class="project" id="projet3">
+            <h2>Projet 3 : Automatisation de poste de travail avec Docker</h2>
+            
+            <details class="project-details">
+              <summary>Détails du projet & Solution d'infrastructure</summary>
+              
+              <p>
+                Ce projet visait à créer un pipeline de traitement de données totalement conteneurisé utilisant Docker. Il s'agissait de mettre en place des briques logicielles intégrées à un environnement de développement, pour générer des PDF de rapports commerciaux.
+                <br><br>
+                La solution assure la reproductibilité et la rapidité du déploiement, cruciales dans un environnement d'équipe.
+              </p>
+
+              <div class="skills">
+                <strong>Technologies/Compétences :</strong>
+                <ul class="tag-list">
+                    <li>Docker</li>
+                    <li>Conteneurisation</li>
+                    <li>Workflow CI/CD</li>
+                    <li>Scripting Shell (Bash)</li>
+                    <li>PHP</li>
+                    <li>Automatisation des processus</li>
+                </ul>
+              </div>
+              
+              <details class="file-details">
+                <summary>Voir les fichiers de configuration</summary>
+                <ul>
+                  <li><a href="fichiers/Documentation.pdf" target="_blank">Documentation Docker</a></li>
+                  <li><a href="fichiers/traitement.sh" target="_blank">Traitement des données (Script Shell)</a></li>
+                  <li><a href="fichiers/tri.php" target="_blank">Tri des données (PHP)</a></li>
+                  <li><a href="fichiers/flags.sh" target="_blank">Fichiers auxiliaires</a></li>
+                </ul>
+              </details>
+            </details>
+          </div>
+
+          <div class="project" id="projet4">
+            <h2>Projet 4 : Conception et Optimisation de Base de Données Relationnelle</h2>
+            
+            <details class="project-details">
+              <summary>Détails du projet & Modélisation</summary>
+              
+              <p>
+                Projet complet de modélisation et d'implémentation d'une base de données (BDD). L'objectif était de garantir l'intégrité, la performance et l'évolutivité des données en passant d'un modèle existant à un modèle relationnel optimisé.
+              </p>
+              
+              <div class="steps-list">
+                <strong>Étapes clés :</strong>
+                <ul>
+                  <li>Étape 1 : Critique du modèle existant et proposition d'un nouveau modèle logique (via script SQL).</li>
+                  <li>Étape 2 : Réponse aux requêtes complexes (via script SQL).</li>
+                  <li>Étape 3 : Extension de la BDD (diagramme de classe, implémentation SQL et jeu de données test).</li>
+                </ul>
+              </div>
+              
+              <div class="skills">
+                <strong>Technologies/Compétences :</strong>
+                <ul class="tag-list">
+                    <li>SQL (DDL/DML)</li>
+                    <li>Modélisation (UML/Merise)</li>
+                    <li>Optimisation de Schéma</li>
+                    <li>Requêtes complexes</li>
+                </ul>
+              </div>
+
+              <details class="file-details">
+                <summary>Voir les livrables</summary>
+                <ul>
+                  <li><a href="fichiers/diagramme_bdd.pdf" target="_blank">Diagramme des contraintes</a></li>
+                  <li><a href="fichiers/bdd.sql" target="_blank">Base de données (Script SQL)</a></li>
+                </ul>
+              </details>
+            </details>
+          </div>
+
+          <div class="project" id="projet5">
+            <h2>Projet 5 : Analyse des Besoins et Maquettage UX/UI</h2>
+            
+            <details class="project-details">
+              <summary>Détails du projet & Méthodologie</summary>
+              
+              <p>
+                Ce projet met en évidence la capacité à s'organiser en équipe pour comprendre les besoins du client et les traduire en une solution ergonomique et technique. Il couvre toute la chaîne de conception logicielle, de l'idéation à la présentation.
+              </p>
+
+              <div class="steps-list">
+                <strong>Méthodologie :</strong>
+                <ul>
+                  <li>1- Organisation d'équipe (rôles et répartition des tâches).</li>
+                  <li>2- Rédaction des besoins et spécifications fonctionnelles.</li>
+                  <li>3- Réalisation de l'arborescence et Wireframing.</li>
+                  <li>4- Création de la charte graphique.</li>
+                  <li>5- Maquettage haute fidélité.</li>
+                  <li>6- Programmation avec outil de versioning (Git).</li>
+                </ul>
+              </div>
+              
+              <div class="skills">
+                <strong>Technologies/Compétences :</strong>
+                <ul class="tag-list">
+                    <li>UX/UI Design</li>
+                    <li>Maquettage</li>
+                    <li>Charte Graphique</li>
+                    <li>Gestion de Projet</li>
+                    <li>Versioning (Git)</li>
+                    <li>Communication</li>
+                </ul>
+              </div>              
+              <details class="file-details">
+                <summary>Voir le livrable</summary>
+                <ul>
+                  <li><a href="fichiers/Maquette.pdf" target="_blank">Maquette (PDF)</a></li>
+                </ul>
+              </details>
+            </details>
+          </div>
+          <div class="project" id="projet6">
+            <h2>Projet 6 : Veille Stratégique et Organisation de la Transition Numérique</h2>
+            
+            <details class="project-details">
+              <summary>Détails du projet & Compétences transversales</summary>
+              
+              <p>
+                Projet axé sur la gestion d'équipe et la veille stratégique pour analyser l'écosystème numérique d'une entreprise, en se concentrant particulièrement sur la RSE (Responsabilité Sociétale des Entreprises) et la transition écologique.
+              </p>
+              
+              <div class="steps-list">
+                <strong>Objectifs :</strong>
+                <ul>
+                  <li>1- Organisation du travail d'équipe (planification, objectifs, partage des tâches).</li>
+                  <li>2- Veille documentaire ciblée sur l'organisation et la RSE.</li>
+                  <li>3- Synthèse écrite des informations et analyse.</li>
+                  <li>4- Présentation orale des résultats.</li>
+                </ul>
+              </div>
+              <div class="skills">
+                <strong>Technologies/Compétences :</strong>
+                <ul class="tag-list">
+                    <li>Gestion d'équipe</li>
+                    <li>Outils collaboratifs</li>
+                    <li>Veille stratégique</li>
+                    <li>Analyse documentaire</li>
+                    <li>RSE</li>
+                    <li>Communication professionnelle</li>
+                </ul>
+              </div>
+              
+              <details class="file-details">
+                <summary>Voir le livrable</summary>
+                <ul>
+                  <li><a href="fichiers/Rapport.pdf" target="_blank">Rapport de l'entreprise</a></li>
+                </ul>
+              </details>
+            </details>
+          </div>
+        </article>
+    </div>
 
   </section>
   <a href="#top" class="arrow">⬆</a>
   <footer class="footer_comp">
     <p>
-        <em>Savel-Lorinet Lora Etudiante en BUT Informatique à la recherche d'une alternance</em>
+      <em>Savel-Lorinet Lora Etudiante en 2ème année de BUT Informatique à la recherche d'une alternance / d'un stage. 0766498081</em>
     </p>
     <p>
       <em>0766498081</em>
@@ -136,24 +287,13 @@
 </body>
 </html>
 
- <style>
-  .footer_comp{
-      display: inline-flex;
-      gap: 25px;
-      width: 100%;
-      text-align: center;
-      align-content: center;
-      justify-content: center;
-      z-index: 100;
-      border: 2px solid #693F26;
-      background-color:rgba(213, 194, 165);
-    }
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Overlock:wght@400;700&display=swap');
 
-    .lien_contact_proj{
-      color: #693F26;
-      text-decoration: none;
-    }
-
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
     margin: 0; 
     padding: 0;
@@ -166,55 +306,184 @@
   }
 
   .projects-section {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 50px auto;
     padding: 0 20px;
   }
 
-  h1 {
+  #main-title {
     font-size: 3rem;
     text-align: center;
     margin-bottom: 40px;
     font-weight: 700;
   }
 
+  .projects-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  @media (min-width: 1024px) {
+    .projects-layout {
+      grid-template-columns: 250px 1fr;
+    }
+  }
+
+  .project-controls {
+    display: flex;
+    justify-content: flex-end; 
+    margin-bottom: 20px;
+    padding-right: 15px;
+  }
+
+  @media (min-width: 1024px) {
+    .project-controls {
+        grid-column: 2 / 3; 
+    }
+  }
+
+  .control-button {
+    background-color: #DDD0B8;
+    color: #693F26;
+    border: 2px solid #693F26;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    font-family: 'Overlock', serif;
+    font-size: 1rem;
+  }
+
+  .control-button:hover {
+    background-color: #C0A98C;
+  }
+
+  .control-button:active {
+    transform: scale(0.98);
+  }
+
+  .project-index {
+    padding: 20px 0;
+    margin-top: 15px;
+  }
+  
+  @media (min-width: 1024px) {
+      .project-index {
+          position: sticky;
+          top: 30px;
+          height: fit-content;
+          align-self: start;
+          padding: 20px;
+          border-radius: 10px;
+          background: rgba(255, 255, 255, 0.7);
+          box-shadow: 0 4px 12px rgba(105,63,38,0.1);
+          border: 1px solid #D5C2A5;
+      }
+      .project-index h3 {
+          margin-top: 0;
+          border-bottom: 2px solid #8C6A4F;
+          padding-bottom: 10px;
+          font-size: 1.3rem;
+          color: #693F26;
+          font-weight: 700;
+      }
+      .project-index ul {
+          list-style: none;
+          padding: 0;
+      }
+      .project-index ul li {
+          margin-bottom: 10px;
+      }
+      .project-index a {
+          text-decoration: none;
+          color: #693F26;
+          font-weight: 700;
+          transition: color 0.2s ease, padding-left 0.2s ease;
+          display: block;
+          padding: 5px 0;
+          border-radius: 5px;
+      }
+      .project-index a:hover {
+          color: #8C6A4F;
+          padding-left: 5px;
+      }
+  }
+  
+  @media (max-width: 1023px) {
+      .project-index {
+          display: none;
+      }
+  }
+
   .project {
-    background: white;
+    background: #FAF6F0;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(105,63,38,0.15);
     margin-bottom: 50px;
-    transform: translateY(50px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-    padding: 20px;
+    padding: 25px; 
     border: 2px solid #693F26;
     margin-bottom: 80px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease; 
   }
 
-  .project img {
-    max-width: 100%;
-    border-radius: 12px;
-    margin-bottom: 15px;
+  .project:hover {
+    box-shadow: 0 15px 35px rgba(105,63,38,0.3);
+    transform: translateY(-5px);
   }
 
   .project h2 {
     margin: 0 0 15px 0;
     font-weight: 700;
     color: #693F26;
-    border-bottom: 2px solid #D5C2A5;
-    padding: 10px;
+    border-bottom: 2px solid #D5C2A5; 
+    padding-bottom: 10px;
+    position: relative;
+    display: inline-block;
   }
+
+  .project h2::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 5px;
+    left: 0;
+    background-color: #8C6A4F;
+    transition: width 0.3s ease-out;
+  }
+
+  .project:hover h2::after {
+    width: 100%;
+  }
+  
+  .steps-list {
+    margin-top: 15px;
+    padding-left: 0;
+  }
+  .steps-list ul {
+    list-style-type: none;
+    padding-left: 20px;
+  }
+  .steps-list ul li::before {
+    content: "•";
+    color: #8C6A4F;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+  }
+
 
   .project p {
     font-size: 1.1rem;
-    line-height: 1.5;
+    line-height: 1.6;
     color: #693F26;
   }
 
   .project a {
-    display: inline-block;
-    margin-top: 12px;
     color: #8C6A4F;
-    font-weight: 700;
     text-decoration: underline;
     transition: color 0.3s ease;
   }
@@ -230,72 +499,256 @@
     color: #693F26;
     text-decoration: none;
     font-size: 1.2rem;
-    padding: 5px 10px;
-    background-color: rgba(213, 194, 165, 0.7);
-    border-radius: 3px;
+    padding: 8px 15px;
+    background-color: #D5C2A5; 
+    border-radius: 8px; 
     border: 1px solid #693F26;
-}
+    transition: background-color 0.3s ease;
+  }
+  .back-link:hover {
+    background-color: #C0A98C;
+  }
 
-details {
-  margin-top: 10px;
-  padding: 10px;
-  border: 1px solid #693F26;
-  background-color: #DDD0B8;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-}
 
-summary {
-  font-weight: bold;
-  color: #693F26;
-  cursor: pointer;
-  list-style: none;
-}
+  .project-details {
+    margin-top: 20px; 
+    padding: 0; 
+    border: none;
+    background-color: transparent;
+  }
 
-summary::marker {
-  content: "";
-}
+  .project-details summary {
+    padding: 15px 20px;
+    border: 1px solid #693F26;
+    background-color: #DDD0B8; 
+    border-radius: 8px;
+    font-size: 1.15rem; 
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
+    color: #693F26;
+    list-style: "▶ "; 
+  }
 
-ul {
-  margin-top: 10px;
-  padding-left: 20px;
-}
+  .project-details summary:active {
+    transform: scale(0.98);
+  }
 
-ul li {
-  margin-bottom: 6px;
-}
+  .project-details[open] summary {
+      list-style: "▼ "; 
+  }
 
-ul li a {
-  color: #8C6A4F;
-  text-decoration: none;
-}
+  .project-details summary:hover {
+    background-color: #C0A98C; 
+  }
+  
+  details {
+    margin-top: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    border-radius: 0;
+    font-size: 1rem;
+    cursor: default;
+  }
+  summary {
+    list-style: none; 
+  }
 
-ul li a:hover {
-  text-decoration: underline;
-  color: #693F26;
-}
+  .skills {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: rgba(213, 194, 165, 0.7); 
+    border-left: 5px solid #693F26; 
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #693F26;
+    border-radius: 0 8px 8px 0;
+  }
+  
+  .skills strong {
+      font-weight: 800;
+      display: block;
+      margin-bottom: 5px;
+  }
+  
+  .tag-list {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px; 
+  }
 
-.arrow {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #D5C2A5;
-  color: #693F26;
-  border: 2px solid #693F26;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 24px;
-  text-align: center;
-  line-height: 46px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
+  .tag-list li {
+      background-color: #693F26; 
+      color: #FAF6F0; 
+      padding: 6px 12px;
+      border-radius: 20px; 
+      font-size: 0.9rem;
+      font-weight: 400; 
+      line-height: 1;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+  }
+  
+  .tag-list li:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
 
-.arrow:hover {
-  background-color: #C0A98C;
-}
+  .file-details {
+    margin-top: 25px;
+    padding: 15px;
+    border: 1px solid #693F26;
+    background-color: #DDD0B8;
+    border-radius: 8px;
+  }
 
+  .file-details summary {
+    font-weight: bold;
+    color: #693F26;
+    cursor: pointer;
+    list-style: none;
+    padding: 0; 
+    background-color: transparent;
+    border: none;
+  }
+  .file-details summary:hover {
+    color: #8C6A4F;
+    background-color: transparent;
+  }
+
+  .file-details ul {
+    margin-top: 10px;
+    padding-left: 25px;
+  }
+
+  .file-details ul li {
+    margin-bottom: 8px;
+  }
+
+
+  .footer_comp {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 25px;
+    width: 100%;
+    padding: 20px 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-top: 2px solid #693F26; 
+    background-color: #D5C2A5; 
+  }
+
+  .footer_comp p {
+    margin: 0;
+  }
+
+  .lien_contact_proj {
+    color: #693F26;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+  .arrow {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #D5C2A5;
+    color: #693F26;
+    border: 2px solid #693F26;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    text-align: center;
+    line-height: 46px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+  }
+
+  .arrow:hover {
+    background-color: #C0A98C;
+    transform: scale(1.1);
+  }
+  
+  @media (max-width: 1023px) {
+    .projects-section {
+      margin-top: 20px;
+      padding: 0 10px;
+      max-width: 850px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .project {
+      padding: 15px;
+      margin-bottom: 40px;
+    }
+    .back-link {
+      position: relative;
+      top: auto;
+      left: auto;
+      display: block;
+      width: fit-content;
+      margin: 15px auto 0;
+    }
+    .footer_comp {
+      flex-direction: column;
+      gap: 10px;
+      padding: 15px 10px;
+    }
+    .arrow {
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        line-height: 36px;
+        font-size: 20px;
+    }
+  }
 
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mainTitle = document.getElementById('main-title');
+    const toggleButton = document.getElementById('toggle-all-details');
+    const allDetails = document.querySelectorAll('.project-details');
+
+    function handleParallax() {
+      const scrollY = window.scrollY;
+      mainTitle.style.transform = `translateY(${scrollY * 0.3}px)`;
+    }
+    window.addEventListener('scroll', handleParallax);
+    
+    if (toggleButton) {
+        allDetails.forEach(details => {
+            details.open = false;
+        });
+        
+        toggleButton.addEventListener('click', () => {
+            const isCollapsed = toggleButton.textContent === 'Déplier tout';
+            
+            allDetails.forEach(details => {
+                details.open = isCollapsed;
+            });
+
+            if (isCollapsed) {
+                toggleButton.textContent = 'Replier tout';
+            } else {
+                toggleButton.textContent = 'Déplier tout';
+            }
+        });
+    }
+  });
+</script>
