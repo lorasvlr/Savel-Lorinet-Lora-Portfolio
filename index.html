@@ -1,40 +1,374 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>Savel-Lorinet Lora</title>
-        <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css2?family=Overlock:wght@400;700;900&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <header>
-            <div class="header-content">
-                <img src="Images/muguet.png" alt="Muguet" class="muguet-g">
-                <h1>Mon Portfolio</h1>
-                <img src="Images/muguet.png" alt="Muguet" class="muguet-d">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savel-Lorinet Lora - Portfolio BUT Informatique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Overlock:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    
+    <header class="main-header">
+        <div class="header-content">
+            <h1 class="portfolio-title">Savel-Lorinet Lora</h1>
+            <p class="subtitle-header">Étudiante BUT Informatique</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+        <section class="hero-section">
+            
+            <div class="profile-intro-container">
+                <img src="Images/moi.png" alt="Portrait de Lora Savel-Lorinet" class="profile-image">
+                
+                <div class="texte-intro">
+                    <h2>Bonjour et bienvenue !</h2>
+                    <p>
+                        Je suis étudiante en <strong>2ème année de BUT Informatique</strong> et je suis activement à la recherche d'une <strong>alternance en développement web</strong> et/ou d'un <strong>stage en développement web</strong>.<br>
+                        Découvrez ici mes projets techniques et mes compétences.
+                    </p>
+                    <a href="#quick-links" class="cta-scroll-button">Explorer mon profil ▼</a>
+                </div>
             </div>
-        </header>
-        <footer>
-            <p>Savel-Lorinet Lora</p>
-        </footer>
-    </body>
-    <main>
-        <img src="Images/moi.png" alt="Illustration">
-        <nav class="content">
-            <ul>
-                <li><a href="a_propos.html">À propos de moi</a></li>
-                <li><a href="competences.html">Compétences</a></li>
-                <li><a href="Projets.html">Projets</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <section class="texte-intro">
-            <p>
-                Bonjour ! <br> <br>
-                Je suis étudiante en Informatique et je recherche une alternance ! <br>
-                Vous trouverez ici des informations sur moi, mes compétences ainsi que les projets que j'ai pu réaliser. <br>
-            </p>
+
+            <nav class="quick-links" id="quick-links">
+                <p class="nav-prompt">Accès rapide :</p>
+                <ul>
+                    <li><a href="a_propos.html" class="nav-button">À propos de moi</a></li>
+                    <li><a href="competences.html" class="nav-button">Compétences</a></li>
+                    <li><a href="Projets.html" class="nav-button">Projets</a></li>
+                    <li><a href="contact.html" class="nav-button">Contact</a></li>
+                </ul>
+            </nav>
         </section>
+
     </main>
     
+    <footer class="footer_comp">
+        <p>
+        <em>Savel-Lorinet Lora Etudiante en 2ème année de BUT Informatique à la recherche d'une alternance / d'un stage. 0766498081</em>
+        </p>
+        <p>
+        <em>0766498081</em>
+        </p>
+        <p>
+        <em>lora.lorinet@gmail.com</em>
+        </p>
+        <p>
+        <em><a href="contact.html" class="lien_contact_proj">Contactez-moi !</a></em>
+        </p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.querySelector('.main-header');
+            let lastScrollY = window.scrollY;
+            const scrollThreshold = 80; 
+
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+
+                if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+                    header.classList.add('header-hidden');
+                } 
+                else if (currentScrollY < lastScrollY || currentScrollY < scrollThreshold) {
+                    header.classList.remove('header-hidden');
+                }
+
+                lastScrollY = currentScrollY;
+            });
+        });
+    </script>
+    
+</body>
 </html>
+
+<style>
+    :root {
+        --color-dark-brown: #693F26;
+        --color-medium-brown: #8C6A4F;
+        --color-light-beige: #D5C2A5;
+        --color-lighter-beige: #DDD0B8;
+        --color-cream: #FAF6F0;
+        --color-white: #FFFFFF;
+    }
+
+    body {
+        font-family: 'Overlock', serif;
+        margin: 0;
+        padding: 0;
+        color: var(--color-dark-brown);
+        background-image: url(Images/background5.jpg); 
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        scroll-behavior: smooth;
+        line-height: 1.6;
+    }
+
+    
+
+    .main-header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+        background-color: rgba(221, 208, 184, 0.85); 
+        border-bottom: 2px solid var(--color-light-beige);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        transition: transform 0.3s ease-in-out; 
+    }
+
+    .main-header.header-hidden {
+        transform: translateY(-100%);
+    }
+
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .portfolio-title {
+        font-size: 2.5rem;
+        color: var(--color-dark-brown);
+        margin: 0;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+    
+    .subtitle-header {
+        font-size: 1.2rem;
+        color: var(--color-medium-brown);
+        margin: 5px 0 0 0;
+        font-weight: 400;
+    }
+
+    .main-content {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-top: 120px; 
+        padding-bottom: 50px;
+    }
+    
+    .hero-section {
+        max-width: 1000px;
+        width: 90%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+        margin-bottom: 0; 
+    }
+
+    .profile-intro-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .profile-image {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center top; 
+        border: 4px solid var(--color-light-beige);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transition: transform 0.5s ease;
+    }
+    .profile-image:hover {
+        transform: scale(1.05) rotate(2deg);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .texte-intro {
+        background-color: rgba(255, 255, 255, 0.9);
+        color: var(--color-dark-brown);
+        padding: 30px 40px;
+        border: 2px solid var(--color-light-beige);
+        border-radius: 15px;
+        max-width: 650px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        z-index: 5;
+    }
+
+    .texte-intro h2 {
+        font-size: 2.5rem;
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+    .texte-intro p {
+        font-size: 1.3rem;
+        line-height: 1.5;
+        margin-bottom: 20px; 
+    }
+    .texte-intro strong {
+        font-weight: 900;
+        color: var(--color-medium-brown);
+    }
+    
+    .cta-scroll-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: var(--color-dark-brown);
+        color: var(--color-white);
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1rem;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .cta-scroll-button:hover {
+        background-color: var(--color-medium-brown);
+        transform: translateY(-2px);
+    }
+
+    .quick-links {
+        width: 100%;
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    .nav-prompt {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: var(--color-dark-brown);
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    .quick-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .nav-button {
+        text-wrap: nowrap;
+        display: inline-block;
+        padding: 18px 30px; 
+        background-color: var(--color-cream); 
+        color: var(--color-dark-brown); 
+        text-decoration: none; 
+        border-radius: 10px; 
+        font-size: 1.3rem;
+        font-weight: 700;
+        transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; 
+        border: 2px solid var(--color-light-beige);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-button:hover {
+        background-color: var(--color-dark-brown); 
+        color: var(--color-white); 
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        border-color: var(--color-dark-brown);
+    }
+
+    .main-footer {
+        width: 100%;
+        padding: 15px 0;
+        text-align: center;
+        background-color: rgba(221, 208, 184, 0.85);
+        border-top: 2px solid var(--color-light-beige);
+        margin-top: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap; 
+        line-height: 1.4;
+    }
+    .footer_comp {
+          display: flex; 
+          flex-wrap: wrap; 
+          gap: 25px;
+          width: 100%;
+          padding: 20px 10px;
+          text-align: center;
+          align-items: center;
+          justify-content: center;
+          border-top: 2px solid #693F26; 
+          background-color: #D5C2A5; 
+        }
+
+        .footer_comp p {
+          margin: 0;
+        }
+
+        .lien_contact_proj{
+            color: #693F26;
+            text-decoration: none;
+        }
+
+    @media (min-width: 768px) {
+        .texte-intro {
+            padding: 40px 60px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .main-header {
+            padding: 10px 0;
+        }
+        .portfolio-title {
+            font-size: 2rem;
+        }
+        .subtitle-header {
+            font-size: 1rem;
+        }
+        .main-content {
+            padding-top: 100px;
+        }
+        .profile-image {
+            width: 100px;
+            height: 100px;
+        }
+        .texte-intro {
+            padding: 20px 25px;
+            width: 95%;
+        }
+        .texte-intro h2 {
+            font-size: 2rem;
+        }
+        .texte-intro p {
+            font-size: 1.1rem;
+        }
+        .quick-links ul {
+            flex-direction: column;
+            gap: 15px;
+        }
+        .nav-button {
+            width: 80%;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+        .main-footer {
+            flex-direction: column;
+            gap: 5px;
+            padding: 10px 5px;
+        }
+        .footer-info {
+             font-size: 0.85rem;
+        }
+    }
+</style>
