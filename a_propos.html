@@ -24,7 +24,7 @@
                 </div>
             <div class="cv-preview">
                 <a href="Images/CV.png" target="_blank">
-                    <img src="Images/CV.png" alt="Aperçu de mon CV" class="cv-image">
+                    <img src="Images/CV Savel-Lorinet Lora Alternance-1.png" alt="Aperçu de mon CV" class="cv-image">
                 </a>
                 <a href="Images/CV.pdf" download="CV.pdf" class="download-btn">
                      Télécharger mon CV
@@ -54,19 +54,6 @@
         color: #D5C2A5;
     }
 
-    .back-link {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        color: #693F26;
-        text-decoration: none;
-        font-size: 1.2rem;
-        padding: 5px 10px;
-        background-color: rgba(213, 194, 165, 0.7);
-        border-radius: 3px;
-        border: 1px solid #693F26;
-    }
-
     header img {
         position: fixed;
         bottom: 0;
@@ -74,7 +61,6 @@
         height: 50vh;
         z-index: 1;
     }
-
     .back-link {
         position: absolute;
         top: 20px;
@@ -82,16 +68,14 @@
         color: #693F26;
         text-decoration: none;
         font-size: 1.2rem;
-        padding: 5px 10px;
-        background-color: rgba(213, 194, 165, 0.7);
-        border-radius: 3px;
-        z-index: 100;
-        transition: all 0.3s;
+        padding: 8px 15px;
+        background-color: #D5C2A5; 
+        border-radius: 8px; 
+        border: 1px solid #693F26;
+        transition: background-color 0.3s ease;
     }
-
     .back-link:hover {
-        background-color: rgba(213, 194, 165, 1);
-        transform: scale(1.05);
+        background-color: #C0A98C;
     }
 
     .about-container {
@@ -101,8 +85,8 @@
         margin: 20px auto;
         padding: 40px;
         border-radius: 20px;
-        box-shadow: -10px 0 10px rgba(105, 63, 38, 0.7)  /* à gauche */, 
-                     10px 0 10px rgba(105, 63, 38, 0.7);  /* à droite */
+        box-shadow: -10px 0 10px rgba(105, 63, 38, 0.7), 
+                     10px 0 10px rgba(105, 63, 38, 0.7);
         position: relative;
         z-index: 2;
         border: 2px solid #D5C2A5;
@@ -149,7 +133,6 @@
         transform: scale(1.02);
     }
 
-    /* Bouton de téléchargement */
     .download-btn {
         display: block;
         width: 250px;
@@ -173,7 +156,6 @@
         box-shadow: 0 5px 15px rgba(105, 63, 38, 0.3);
     }
 
-    /*reliure*/
     .about-content::before {
         content: "";
         position: absolute;
